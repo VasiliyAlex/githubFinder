@@ -6,6 +6,8 @@ import clsx from "clsx";
 const Repos = () => {
   const dispatch = useDispatch();
   const { repos } = useSelector(userSelector);
+  
+  console.log(repos );
 
   const [name, setName] = useState(true);
   const [stargazers, setStargazers] = useState(false);
@@ -43,7 +45,8 @@ const Repos = () => {
           ДАТА
         </li>
       </ul>
-      {repos?.map((item) => (
+      {/*   Object.keys(repos).length > 2  && */}
+      {  repos  && repos?.map((item) => (
         <div className="repos__item" key={item.id}>
           <div className="repos__item-left">
             <p className="card__p">
@@ -56,7 +59,7 @@ const Repos = () => {
             <p className="card__p">
               Дата добавления:{" "}
               <span className="card__span">
-                {item.updated_at.split("T")[0]}
+                {item?.updated_at?.split("T")[0]}
               </span>
             </p>
           </div>

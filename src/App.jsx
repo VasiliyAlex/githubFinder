@@ -8,7 +8,14 @@ import { useSelector } from "react-redux";
 import { userSelector } from "./redux/userSlice";
 
 function App() {
+  
   const { user } = useSelector(userSelector);
+     
+
+if (user) {
+  console.log(Object.keys(user).length)
+  console.log(user);
+}
 
   return (
     <>
@@ -16,6 +23,7 @@ function App() {
   <div className="container">
     <main className="main">
       <Search/>
+       {/*  user.message !== "Not Found" && Object.keys(user).length > 2 && */}
       {user && 
       <>
        <Card/>

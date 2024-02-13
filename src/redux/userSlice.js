@@ -32,27 +32,35 @@ export const userSlice = createSlice({
         getGithubuser: create.asyncThunk( async (search) => {
             let res = await fetch(`https://api.github.com/users/${search}`) 
             let data = await res.json()
+            if (res.status === 404) {
+                return null
+            }
             return data
          },{
             pending: (state,action) => {
                 console.log(1);
             }, fulfilled: (state, action) => {
                 state.user = action.payload
+                console.log(2)
             },
             rejected: (state, action) => {
-                console.log(3);
+                
             },
             
          }),
         getUserrepos: create.asyncThunk( async (search) => {
             let res = await fetch(`https://api.github.com/users/${search}/repos`) 
             let data = await res.json()
+            if (res.status === 404) {
+                return null
+            }
             return data
          },{
             pending: (state,action) => {
-                console.log(1);
+                console.log(11);
             }, fulfilled: (state, action) => {
                 state.repos = action.payload
+                console.log(22);
             },
             rejected: (state, action) => {
                 console.log(3);

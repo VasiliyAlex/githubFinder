@@ -11,6 +11,7 @@ const Search = () => {
     event.preventDefault();
     dispatch(getGithubuser(search));
     dispatch(getUserrepos(search));
+    setSearch("");
   };
 
   return (

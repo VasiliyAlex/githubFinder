@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 const Card = () => {
   const { user } = useSelector(userSelector);
 
+  
   return (
     <div className="card">
       <div className="card__left">
@@ -21,7 +22,7 @@ const Card = () => {
           Репозиториев:  <span className="card__span">{user?.public_repos}</span>
         </p>
         <p className="card__p">
-          Создан:  <span className="card__span">{user?.created_at.split("T")[0]}</span>
+          Создан:  <span className="card__span">{user?.created_at?.split("T")[0]}</span>
         </p> 
         <p className="card__p"> 
           Подписчиков: <span className="card__span">{user?.followers}</span>
