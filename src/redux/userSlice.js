@@ -71,4 +71,4 @@ export const userSlice = createSlice({
 
 export const {getGithubuser, getUserrepos, reposSort} = userSlice.actions;
 export default userSlice.reducer;
-export const userSelector = (state) => state.user;
+export const userSelector = (state) => state.user;  
